@@ -1,0 +1,1 @@
+/usr/bin/clang++ -g CMakeFiles/DreamEngine.dir/DreamEngine/Main.cpp.o -o DreamEngine  /usr/lib/libGLEW.so /usr/lib/libglfw.so libWindow_Game.a /usr/lib/libGLX.so /usr/lib/libOpenGL.so 

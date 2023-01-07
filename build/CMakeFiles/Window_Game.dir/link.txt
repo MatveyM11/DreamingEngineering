@@ -1,0 +1,2 @@
+/usr/bin/ar qc libWindow_Game.a CMakeFiles/Window_Game.dir/DreamEngine/Window/Window_Game.cpp.o
+/usr/bin/ranlib libWindow_Game.a
