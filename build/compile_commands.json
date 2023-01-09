@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/mnt/sdb1/Linux/Minecraft CPP/build",
+  "command": "/usr/bin/clang++   -g -o CMakeFiles/Window_Game.dir/DreamEngine/Window/Window_Game.cpp.o -c \"/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Window/Window_Game.cpp\"",
+  "file": "/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Window/Window_Game.cpp"
+},
+{
+  "directory": "/mnt/sdb1/Linux/Minecraft CPP/build",
+  "command": "/usr/bin/clang++   -g -o CMakeFiles/Events.dir/DreamEngine/Window/Events.cpp.o -c \"/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Window/Events.cpp\"",
+  "file": "/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Window/Events.cpp"
+},
+{
+  "directory": "/mnt/sdb1/Linux/Minecraft CPP/build",
+  "command": "/usr/bin/clang++   -g -o CMakeFiles/DreamEngine.dir/DreamEngine/Main.cpp.o -c \"/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Main.cpp\"",
+  "file": "/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Main.cpp"
+}
+]

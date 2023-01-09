@@ -14,12 +14,13 @@ find_package(OpenGL 4.6 REQUIRED)
 
 # Add the Window_Game library
 add_library(Window_Game DreamEngine/Window/Window_Game.cpp DreamEngine/Window/Window_Game.h)
+add_library(Events DreamEngine/Window/Events.cpp DreamEngine/Window/Events.h)
 
 # Add the source files for the DreamEngine target
 add_executable(DreamEngine DreamEngine/Main.cpp)
 
 # Link the libraries to the DreamEngine target
-target_link_libraries(DreamEngine OpenGL::GL GLEW::GLEW ${GLFW3_LIBRARY} Window_Game)
+target_link_libraries(DreamEngine OpenGL::GL GLEW::GLEW ${GLFW3_LIBRARY} Window_Game Events)
 target_include_directories(DreamEngine PRIVATE ${GLFW3_INCLUDE_DIR})
 
 # Set the build type to Debug

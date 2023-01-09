@@ -8,13 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Main.cpp" "CMakeFiles/DreamEngine.dir/DreamEngine/Main.cpp.o" "gcc" "CMakeFiles/DreamEngine.dir/DreamEngine/Main.cpp.o.d"
+  "/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Window/Events.cpp" "CMakeFiles/Events.dir/DreamEngine/Window/Events.cpp.o" "gcc" "CMakeFiles/Events.dir/DreamEngine/Window/Events.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/Window_Game.dir/DependInfo.cmake"
-  "/mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/Events.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

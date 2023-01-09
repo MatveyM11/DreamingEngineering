@@ -130,6 +130,19 @@ Window_Game/fast:
 .PHONY : Window_Game/fast
 
 #=============================================================================
+# Target rules for targets named Events
+
+# Build rule for target.
+Events: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Events
+.PHONY : Events
+
+# fast build rule for target.
+Events/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Events.dir/build.make CMakeFiles/Events.dir/build
+.PHONY : Events/fast
+
+#=============================================================================
 # Target rules for targets named DreamEngine
 
 # Build rule for target.
@@ -166,6 +179,30 @@ DreamEngine/Main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DreamEngine.dir/build.make CMakeFiles/DreamEngine.dir/DreamEngine/Main.cpp.s
 .PHONY : DreamEngine/Main.cpp.s
 
+DreamEngine/Window/Events.o: DreamEngine/Window/Events.cpp.o
+.PHONY : DreamEngine/Window/Events.o
+
+# target to build an object file
+DreamEngine/Window/Events.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Events.dir/build.make CMakeFiles/Events.dir/DreamEngine/Window/Events.cpp.o
+.PHONY : DreamEngine/Window/Events.cpp.o
+
+DreamEngine/Window/Events.i: DreamEngine/Window/Events.cpp.i
+.PHONY : DreamEngine/Window/Events.i
+
+# target to preprocess a source file
+DreamEngine/Window/Events.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Events.dir/build.make CMakeFiles/Events.dir/DreamEngine/Window/Events.cpp.i
+.PHONY : DreamEngine/Window/Events.cpp.i
+
+DreamEngine/Window/Events.s: DreamEngine/Window/Events.cpp.s
+.PHONY : DreamEngine/Window/Events.s
+
+# target to generate assembly for a file
+DreamEngine/Window/Events.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Events.dir/build.make CMakeFiles/Events.dir/DreamEngine/Window/Events.cpp.s
+.PHONY : DreamEngine/Window/Events.cpp.s
+
 DreamEngine/Window/Window_Game.o: DreamEngine/Window/Window_Game.cpp.o
 .PHONY : DreamEngine/Window/Window_Game.o
 
@@ -199,10 +236,14 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DreamEngine"
+	@echo "... Events"
 	@echo "... Window_Game"
 	@echo "... DreamEngine/Main.o"
 	@echo "... DreamEngine/Main.i"
 	@echo "... DreamEngine/Main.s"
+	@echo "... DreamEngine/Window/Events.o"
+	@echo "... DreamEngine/Window/Events.i"
+	@echo "... DreamEngine/Window/Events.s"
 	@echo "... DreamEngine/Window/Window_Game.o"
 	@echo "... DreamEngine/Window/Window_Game.i"
 	@echo "... DreamEngine/Window/Window_Game.s"

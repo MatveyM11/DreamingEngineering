@@ -95,6 +95,7 @@ DreamEngine: CMakeFiles/DreamEngine.dir/build.make
 DreamEngine: /usr/lib/libGLEW.so
 DreamEngine: /usr/lib/libglfw.so
 DreamEngine: libWindow_Game.a
+DreamEngine: libEvents.a
 DreamEngine: /usr/lib/libGLX.so
 DreamEngine: /usr/lib/libOpenGL.so
 DreamEngine: CMakeFiles/DreamEngine.dir/link.txt
