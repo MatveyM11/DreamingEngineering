@@ -2,6 +2,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "Events.h"
+#include "../graphics/Shader.h"
 
 const int WIDTH = 1280;
 const int HEIGHT = 720;
@@ -68,6 +69,8 @@ int Window_Game()
             glClearColor(1, 0, 0, 1);
             break;
         }
+
+        Shader* shader = load_shader("../DreamEngine/res/main.glslv", "../DreamEngine/res/main.glslf");
 
         glClear(GL_COLOR_BUFFER_BIT);
         glfwSwapBuffers(window); // One frame calculated in background, other being displayed on the screen. After displaying is finished, they're being swapped.
