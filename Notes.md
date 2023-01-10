@@ -7,3 +7,111 @@ Strangely, on my Arch system(EndeavourOS) there was no glfw installed by default
 ```bash
 sudo pacman -S glfw
 ```
+
+## OOP
+
+1. Initializer lists
+
+Shader.h
+```CPP
+class Shader{ // Constructor
+    public:
+    unsigned int id; 
+        Shader(unsigned int id); // Each OpenGL object has it's own id, so the shader program has it too
+        ~Shader(); // Destructor, automatically destroying object when it's no more used, to free memory
+
+        void use(); // method that is needed to use the shader program
+
+};
+
+extern Shader* load_shader(); // Here shader object will be initialized and it's ID will be given
+```
+
+Shader.cpp
+```CPP
+
+Shader::Shader(unsigned int id) : id(id){
+
+}
+
+```
+1.
+In the code you provided, : id(id) is an initializer list.
+
+Initializer lists are used in C++ to initialize member variables of a class when an object is constructed. They are placed after the function arguments in the constructor function definition and consist of a list of variable names followed by the corresponding initial values, separated by commas.
+
+In this case, id(id) is initializing the member variable id of the Shader class with the value of the id argument passed to the constructor. The member variable id will be set to the value of the id argument when the Shader object is created.
+
+Initializer lists are used to initialize member variables in the order in which they are declared in the class definition, rather than in the order in which they are listed in the initializer list. This can be useful if you want to initialize member variables in a specific order or if some of the member variables depend on the values of others.
+
+It is important to note that member variables can also be initialized using assignments in the body of the constructor function, but initializer lists are generally considered to be more efficient and are the preferred method for initializing member variables in C++.
+
+2. 
+There are a few reasons why initializer lists are preferred over assignments in the body of the constructor function for initializing member variables in C++:
+
+Efficiency: Initializer lists are generally more efficient than assignments for initializing member variables. This is because initializer lists initialize the variables directly, rather than assigning to them after they have already been constructed.
+
+Order of initialization: Initializer lists initialize member variables in the order in which they are declared in the class definition, rather than in the order in which they appear in the initializer list. This can be useful if you want to ensure that member variables are initialized in a specific order or if some of the member variables depend on the values of others.
+
+Constant member variables: Member variables that are declared as const or constexpr can only be initialized using an initializer list. They cannot be assigned to after they have been constructed.
+
+Reference member variables: Member variables that are declared as references must be initialized using an initializer list. They cannot be assigned to after they have been constructed.
+
+Overall, initializer lists are considered to be a more flexible and efficient way to initialize member variables in C++, and they are the preferred method for many developers. However, it is important to note that member variables can also be initialized using assignments in the body of the constructor function, and there may be cases where this is necessary or more convenient.
+
+
+## Functions Explanation
+
+1. Loading shader vertexFile and fragmentFile to link them in a shader program
+```CPP
+Shader *load_shader(std::string vertexFile, std::string fragmentFile)
+{
+    // Declare variables to store the shader code
+    std::string vertexCode;
+    std::string fragmentCode;
+
+    // Try to open and read the files
+    try
+    {
+        // Declare and open the std::ifstream objects in a single line of code
+        std::ifstream vShaderFile(vertexFile);
+        std::ifstream fShaderFile(fragmentFile);
+
+        // Declare string streams to store the contents of the files
+        std::stringstream vShaderStream, fShaderStream;
+
+        // Read the contents of the files into the string streams
+        vShaderStream << vShaderFile.rdbuf();
+        fShaderStream << fShaderFile.rdbuf();
+
+        // Convert the string streams to strings
+        vertexCode = vShaderStream.str();
+        fragmentCode = fShaderStream.str();
+    }
+    // Catch any exceptions thrown by the stream objects
+    catch (std::ifstream::failure &e)
+    {
+        // Print an error message and return -1 on failure
+        std::cerr << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
+        return -1;
+    }
+}
+```
+
+1. The load_shader() function is declared and takes two std::string arguments: vertexFile and fragmentFile. It returns a pointer to a Shader object.
+
+2. Two variables are declared: vertexCode and fragmentCode, which will be used to store the contents of the shader files.
+
+3. The try block is started. This block of code will be executed and any exceptions thrown by the stream objects will be caught in the catch block.
+
+4. The std::ifstream objects vShaderFile and fShaderFile are declared and opened in a single line of code. The vertexFile and fragmentFile arguments are passed to the std::ifstream constructors, respectively, to open the files.
+
+5. The std::stringstream objects vShaderStream and fShaderStream are declared. These will be used to store the contents of the shader files.
+
+6. The contents of the vShaderFile and fShaderFile streams are read into the vShaderStream and fShaderStream streams, respectively, using the << operator.
+
+7. The vertexCode and fragmentCode variables are set to the contents of the vShaderStream and fShaderStream streams, respectively, using the str() member function.
+
+8. If an exception is thrown by the stream objects, it is caught in the catch block. An error message is printed to std::cerr and the function returns -1.
+
+9. I hope this helps clarify what the code does! Let me know if you have any other questions.
