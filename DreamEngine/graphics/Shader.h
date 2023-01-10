@@ -13,6 +13,6 @@ public:
 	void use();
 };
 
-extern Shader* load_shader(std::string vertexFile, std::string fragmentFile);
+extern Shader load_shader(std::string vertexFile, std::string fragmentFile);
 
 #endif /* GRAPHICS_SHADER_H_ */

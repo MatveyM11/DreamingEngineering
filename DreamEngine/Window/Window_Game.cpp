@@ -7,6 +7,19 @@
 const int WIDTH = 1280;
 const int HEIGHT = 720;
 
+float vertices[] = {
+    0.0f,
+    0.0f,
+    0.0f,
+    1.0f,
+    0.0f,
+    0.0f,
+    0.0f,
+    1.0f,
+    0.0f,
+
+};
+
 int Window_Game()
 {
 
@@ -37,9 +50,40 @@ int Window_Game()
     bool ShiftPressed = false;
     bool CapsPressed = false;
 
+    // triangle shader
+    Shader shader = load_shader("../DreamEngine/res/main.glslv", "../DreamEngine/res/main.glslf");
+    // Create VAO
+    GLuint VAO, VBO;
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+
+    glBindVertexArray(VAO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    // position
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid *)(0 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(0);
+
+    glBindVertexArray(0);
+
+    glClearColor(0.6f, 0.62f, 0.65f, 1);
+
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_BLEND);
+
+    // triangle shader
+
+    shader.use();
+    glClear(GL_COLOR_BUFFER_BIT);
+    
+
+
     glViewport(0, 0, WIDTH, HEIGHT); // tells OpenGL which part of the window to render, and from which corner, (0,0) - top-left
     while (!glfwWindowShouldClose(window))
     {
+
+        glClearColor(0.6f, 0.62f, 0.65f, 1);
+        glClear(GL_COLOR_BUFFER_BIT);
 
         glfwPollEvents(); // Listening for every user's action, window resize, keyboard or mouse input, etc.
 
@@ -62,17 +106,25 @@ int Window_Game()
         case 0:
             std::cout << PassEvents.mouse_button_id << "Mouse id" << std::endl;
             glClearColor(0, 0, 1, 1);
+             glClear(GL_COLOR_BUFFER_BIT);
             break;
 
         case 1:
             std::cout << PassEvents.mouse_button_id << "Mouse id" << std::endl;
             glClearColor(1, 0, 0, 1);
+             glClear(GL_COLOR_BUFFER_BIT);
             break;
         }
 
-        Shader* shader = load_shader("../DreamEngine/res/main.glslv", "../DreamEngine/res/main.glslf");
+       
+        
+        shader.use();
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glBindVertexArray(0);
+      
 
-        glClear(GL_COLOR_BUFFER_BIT);
+        
         glfwSwapBuffers(window); // One frame calculated in background, other being displayed on the screen. After displaying is finished, they're being swapped.
         // Which prevents image flickering and tearing in the most of the cases, in compare to X11, which by default has no buffer(HATE IT)
     }

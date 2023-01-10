@@ -142,8 +142,8 @@ build libgraphics.a: CXX_STATIC_LIBRARY_LINKER__graphics_Debug CMakeFiles/graphi
 
 build cmake_object_order_depends_target_DreamEngine: phony || cmake_object_order_depends_target_Events cmake_object_order_depends_target_Window_Game cmake_object_order_depends_target_graphics
 
-build CMakeFiles/DreamEngine.dir/DreamEngine/Main.cpp.o: CXX_COMPILER__DreamEngine_Debug /mnt/sdb1/Linux/Minecraft$ CPP/DreamEngine/Main.cpp || cmake_object_order_depends_target_DreamEngine
-  DEP_FILE = CMakeFiles/DreamEngine.dir/DreamEngine/Main.cpp.o.d
+build CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o: CXX_COMPILER__DreamEngine_Debug /mnt/sdb1/Linux/Minecraft$ CPP/DreamEngine/main.cpp || cmake_object_order_depends_target_DreamEngine
+  DEP_FILE = CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/DreamEngine.dir
   OBJECT_FILE_DIR = CMakeFiles/DreamEngine.dir/DreamEngine
@@ -156,7 +156,7 @@ build CMakeFiles/DreamEngine.dir/DreamEngine/Main.cpp.o: CXX_COMPILER__DreamEngi
 #############################################
 # Link the executable DreamEngine
 
-build DreamEngine: CXX_EXECUTABLE_LINKER__DreamEngine_Debug CMakeFiles/DreamEngine.dir/DreamEngine/Main.cpp.o | /usr/lib/libGLEW.so /usr/lib/libglfw.so libWindow_Game.a libEvents.a libgraphics.a /usr/lib/libGLX.so /usr/lib/libOpenGL.so || libEvents.a libWindow_Game.a libgraphics.a
+build DreamEngine: CXX_EXECUTABLE_LINKER__DreamEngine_Debug CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o | /usr/lib/libGLEW.so /usr/lib/libglfw.so libWindow_Game.a libEvents.a libgraphics.a /usr/lib/libGLX.so /usr/lib/libOpenGL.so || libEvents.a libWindow_Game.a libgraphics.a
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/libGLEW.so  /usr/lib/libglfw.so  libWindow_Game.a  libEvents.a  libgraphics.a  /usr/lib/libGLX.so  /usr/lib/libOpenGL.so
   OBJECT_DIR = CMakeFiles/DreamEngine.dir

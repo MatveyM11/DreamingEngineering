@@ -115,3 +115,27 @@ Shader *load_shader(std::string vertexFile, std::string fragmentFile)
 8. If an exception is thrown by the stream objects, it is caught in the catch block. An error message is printed to std::cerr and the function returns -1.
 
 9. I hope this helps clarify what the code does! Let me know if you have any other questions.
+
+## C++ Theory
+
+### Memory Allocation
+
+In C++, when an object is dynamically allocated, it is created in the heap memory. The heap is a region of memory that is separate from the stack, and it is typically much larger than the stack. Heap memory is typically allocated by using the new keyword, and it is deallocated by using the delete keyword.
+
+When an object is stack-allocated, it is created in the stack memory. The stack is a region of memory that is reserved for a program's use during its execution. It stores data such as function call frames and local variables. When a function is called, a new frame is created on the stack, and when the function returns, that frame is removed. Stack memory is typically allocated automatically by the compiler, and it is deallocated automatically when the function exits or a block of code is exited.
+
+To distinguish whether an object is stack-allocated or dynamically allocated, you can check whether it is created using the new keyword or whether it is declared as a local variable, for example.
+
+You can also distinguish by checking if the pointer is involved or not.
+For example:
+```CPP
+int x;    // stack-allocated 
+int* y = new int;  // dynamically allocated
+```
+
+In this example, x is stack-allocated, because it is declared as a local variable, whereas y is dynamically allocated, because it is created using the new keyword and is a pointer.
+
+In general, it's a good practice to use stack allocation whenever you can as it is faster and safer, but remember that in cases when objects are big or data needs to be shared among functions, dynamic allocation can be a better choice.
+
+* Otherwordly:
+Memory is stack-allocated when controlled by the runtime itself and dynamic allocation is when memory allocation, freeing of it and other processes are controled by the programmer on his own. 

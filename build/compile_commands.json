@@ -16,7 +16,7 @@
 },
 {
   "directory": "/mnt/sdb1/Linux/Minecraft CPP/build",
-  "command": "/usr/bin/clang++ -g -o CMakeFiles/DreamEngine.dir/DreamEngine/Main.cpp.o -c \"/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Main.cpp\"",
-  "file": "/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Main.cpp"
+  "command": "/usr/bin/clang++ -g -o CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o -c \"/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/main.cpp\"",
+  "file": "/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/main.cpp"
 }
 ]

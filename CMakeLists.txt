@@ -18,7 +18,7 @@ add_library(Events DreamEngine/Window/Events.cpp DreamEngine/Window/Events.h)
 add_library(graphics DreamEngine/graphics/Shader.cpp DreamEngine/graphics/Shader.h)
 
 # Add the source files for the DreamEngine target
-add_executable(DreamEngine DreamEngine/Main.cpp)
+add_executable(DreamEngine DreamEngine/main.cpp)
 
 # Link the libraries to the DreamEngine target
 target_link_libraries(DreamEngine OpenGL::GL GLEW::GLEW ${GLFW3_LIBRARY} Window_Game Events graphics)
