@@ -1,6 +1,7 @@
 /mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/Window_Game.dir
 /mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/Events.dir
-/mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/graphics.dir
+/mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/Graphics.dir
+/mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/Primitives.dir
 /mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/DreamEngine.dir
 /mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/edit_cache.dir
 /mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/rebuild_cache.dir

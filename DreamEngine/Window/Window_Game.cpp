@@ -2,26 +2,19 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "Events.h"
-#include "../graphics/Shader.h"
-
+#include "../Graphics/Shader.h"
+#include "../Primitives/Primitives.h"
 const int WIDTH = 1280;
 const int HEIGHT = 720;
 
-float vertices[] = {
-    0.0f,
-    0.0f,
-    0.0f,
-    1.0f,
-    0.0f,
-    0.0f,
-    0.0f,
-    1.0f,
-    0.0f,
-
-};
 
 int Window_Game()
 {
+
+    float vertices[] = {
+        0.0f, 0.0f, 0.0f,
+        1.0f, 0.0f, 0.0f,
+        0.0f, 1.0f, 0.0f};
 
     glfwInit(); // GLFW Initialization
 
@@ -75,8 +68,6 @@ int Window_Game()
 
     shader.use();
     glClear(GL_COLOR_BUFFER_BIT);
-    
-
 
     glViewport(0, 0, WIDTH, HEIGHT); // tells OpenGL which part of the window to render, and from which corner, (0,0) - top-left
     while (!glfwWindowShouldClose(window))
@@ -106,25 +97,18 @@ int Window_Game()
         case 0:
             std::cout << PassEvents.mouse_button_id << "Mouse id" << std::endl;
             glClearColor(0, 0, 1, 1);
-             glClear(GL_COLOR_BUFFER_BIT);
+            glClear(GL_COLOR_BUFFER_BIT);
             break;
 
         case 1:
             std::cout << PassEvents.mouse_button_id << "Mouse id" << std::endl;
             glClearColor(1, 0, 0, 1);
-             glClear(GL_COLOR_BUFFER_BIT);
+            glClear(GL_COLOR_BUFFER_BIT);
             break;
         }
 
-       
-        
-        shader.use();
-        glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-        glBindVertexArray(0);
-      
+        noTexture_triangle(shader, VAO);
 
-        
         glfwSwapBuffers(window); // One frame calculated in background, other being displayed on the screen. After displaying is finished, they're being swapped.
         // Which prevents image flickering and tearing in the most of the cases, in compare to X11, which by default has no buffer(HATE IT)
     }

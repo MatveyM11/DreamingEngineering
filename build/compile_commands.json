@@ -11,8 +11,13 @@
 },
 {
   "directory": "/mnt/sdb1/Linux/Minecraft CPP/build",
-  "command": "/usr/bin/clang++ -g -o CMakeFiles/graphics.dir/DreamEngine/graphics/Shader.cpp.o -c \"/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/graphics/Shader.cpp\"",
-  "file": "/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/graphics/Shader.cpp"
+  "command": "/usr/bin/clang++ -g -o CMakeFiles/Graphics.dir/DreamEngine/Graphics/Shader.cpp.o -c \"/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Graphics/Shader.cpp\"",
+  "file": "/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Graphics/Shader.cpp"
+},
+{
+  "directory": "/mnt/sdb1/Linux/Minecraft CPP/build",
+  "command": "/usr/bin/clang++ -g -o CMakeFiles/Primitives.dir/DreamEngine/Primitives/Primitives.cpp.o -c \"/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Primitives/Primitives.cpp\"",
+  "file": "/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Primitives/Primitives.cpp"
 },
 {
   "directory": "/mnt/sdb1/Linux/Minecraft CPP/build",

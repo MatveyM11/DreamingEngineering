@@ -103,35 +103,66 @@ build libEvents.a: CXX_STATIC_LIBRARY_LINKER__Events_Debug CMakeFiles/Events.dir
   TARGET_PDB = Events.a.dbg
 
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target graphics
+# Object build statements for STATIC_LIBRARY target Graphics
 
 
 #############################################
-# Order-only phony target for graphics
+# Order-only phony target for Graphics
 
-build cmake_object_order_depends_target_graphics: phony || CMakeFiles/graphics.dir
+build cmake_object_order_depends_target_Graphics: phony || CMakeFiles/Graphics.dir
 
-build CMakeFiles/graphics.dir/DreamEngine/graphics/Shader.cpp.o: CXX_COMPILER__graphics_Debug /mnt/sdb1/Linux/Minecraft$ CPP/DreamEngine/graphics/Shader.cpp || cmake_object_order_depends_target_graphics
-  DEP_FILE = CMakeFiles/graphics.dir/DreamEngine/graphics/Shader.cpp.o.d
+build CMakeFiles/Graphics.dir/DreamEngine/Graphics/Shader.cpp.o: CXX_COMPILER__Graphics_Debug /mnt/sdb1/Linux/Minecraft$ CPP/DreamEngine/Graphics/Shader.cpp || cmake_object_order_depends_target_Graphics
+  DEP_FILE = CMakeFiles/Graphics.dir/DreamEngine/Graphics/Shader.cpp.o.d
   FLAGS = -g
-  OBJECT_DIR = CMakeFiles/graphics.dir
-  OBJECT_FILE_DIR = CMakeFiles/graphics.dir/DreamEngine/graphics
+  OBJECT_DIR = CMakeFiles/Graphics.dir
+  OBJECT_FILE_DIR = CMakeFiles/Graphics.dir/DreamEngine/Graphics
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target graphics
+# Link build statements for STATIC_LIBRARY target Graphics
 
 
 #############################################
-# Link the static library libgraphics.a
+# Link the static library libGraphics.a
 
-build libgraphics.a: CXX_STATIC_LIBRARY_LINKER__graphics_Debug CMakeFiles/graphics.dir/DreamEngine/graphics/Shader.cpp.o
+build libGraphics.a: CXX_STATIC_LIBRARY_LINKER__Graphics_Debug CMakeFiles/Graphics.dir/DreamEngine/Graphics/Shader.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = CMakeFiles/graphics.dir
+  OBJECT_DIR = CMakeFiles/Graphics.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = libgraphics.a
-  TARGET_PDB = graphics.a.dbg
+  TARGET_FILE = libGraphics.a
+  TARGET_PDB = Graphics.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target Primitives
+
+
+#############################################
+# Order-only phony target for Primitives
+
+build cmake_object_order_depends_target_Primitives: phony || CMakeFiles/Primitives.dir
+
+build CMakeFiles/Primitives.dir/DreamEngine/Primitives/Primitives.cpp.o: CXX_COMPILER__Primitives_Debug /mnt/sdb1/Linux/Minecraft$ CPP/DreamEngine/Primitives/Primitives.cpp || cmake_object_order_depends_target_Primitives
+  DEP_FILE = CMakeFiles/Primitives.dir/DreamEngine/Primitives/Primitives.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/Primitives.dir
+  OBJECT_FILE_DIR = CMakeFiles/Primitives.dir/DreamEngine/Primitives
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Primitives
+
+
+#############################################
+# Link the static library libPrimitives.a
+
+build libPrimitives.a: CXX_STATIC_LIBRARY_LINKER__Primitives_Debug CMakeFiles/Primitives.dir/DreamEngine/Primitives/Primitives.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = CMakeFiles/Primitives.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = libPrimitives.a
+  TARGET_PDB = Primitives.a.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target DreamEngine
@@ -140,7 +171,7 @@ build libgraphics.a: CXX_STATIC_LIBRARY_LINKER__graphics_Debug CMakeFiles/graphi
 #############################################
 # Order-only phony target for DreamEngine
 
-build cmake_object_order_depends_target_DreamEngine: phony || cmake_object_order_depends_target_Events cmake_object_order_depends_target_Window_Game cmake_object_order_depends_target_graphics
+build cmake_object_order_depends_target_DreamEngine: phony || cmake_object_order_depends_target_Events cmake_object_order_depends_target_Graphics cmake_object_order_depends_target_Primitives cmake_object_order_depends_target_Window_Game
 
 build CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o: CXX_COMPILER__DreamEngine_Debug /mnt/sdb1/Linux/Minecraft$ CPP/DreamEngine/main.cpp || cmake_object_order_depends_target_DreamEngine
   DEP_FILE = CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o.d
@@ -156,9 +187,9 @@ build CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o: CXX_COMPILER__DreamEngi
 #############################################
 # Link the executable DreamEngine
 
-build DreamEngine: CXX_EXECUTABLE_LINKER__DreamEngine_Debug CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o | /usr/lib/libGLEW.so /usr/lib/libglfw.so libWindow_Game.a libEvents.a libgraphics.a /usr/lib/libGLX.so /usr/lib/libOpenGL.so || libEvents.a libWindow_Game.a libgraphics.a
+build DreamEngine: CXX_EXECUTABLE_LINKER__DreamEngine_Debug CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o | /usr/lib/libGLEW.so /usr/lib/libglfw.so libWindow_Game.a libEvents.a libGraphics.a libPrimitives.a /usr/lib/libGLX.so /usr/lib/libOpenGL.so || libEvents.a libGraphics.a libPrimitives.a libWindow_Game.a
   FLAGS = -g
-  LINK_LIBRARIES = /usr/lib/libGLEW.so  /usr/lib/libglfw.so  libWindow_Game.a  libEvents.a  libgraphics.a  /usr/lib/libGLX.so  /usr/lib/libOpenGL.so
+  LINK_LIBRARIES = /usr/lib/libGLEW.so  /usr/lib/libglfw.so  libWindow_Game.a  libEvents.a  libGraphics.a  libPrimitives.a  /usr/lib/libGLX.so  /usr/lib/libOpenGL.so
   OBJECT_DIR = CMakeFiles/DreamEngine.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -194,9 +225,11 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build Events: phony libEvents.a
 
-build Window_Game: phony libWindow_Game.a
+build Graphics: phony libGraphics.a
 
-build graphics: phony libgraphics.a
+build Primitives: phony libPrimitives.a
+
+build Window_Game: phony libWindow_Game.a
 
 # =============================================================================
 # Folder targets.
@@ -206,7 +239,7 @@ build graphics: phony libgraphics.a
 #############################################
 # Folder: /mnt/sdb1/Linux/Minecraft CPP/build
 
-build all: phony libWindow_Game.a libEvents.a libgraphics.a DreamEngine
+build all: phony libWindow_Game.a libEvents.a libGraphics.a libPrimitives.a DreamEngine
 
 # =============================================================================
 # Built-in targets
