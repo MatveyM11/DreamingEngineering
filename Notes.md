@@ -139,3 +139,71 @@ In general, it's a good practice to use stack allocation whenever you can as it 
 
 * Otherwordly:
 Memory is stack-allocated when controlled by the runtime itself and dynamic allocation is when memory allocation, freeing of it and other processes are controled by the programmer on his own. 
+
+## Weird Behavior
+
+### CMake
+
+1. Importance of the linkage order
+
+This will work -
+```CMake
+target_link_libraries(DreamEngine OpenGL::GL GLEW::GLEW ${GLFW3_LIBRARY} Tests Window_Game Events Graphics Primitives )
+```
+
+And that's will work as well - 
+
+```CMake
+target_link_libraries(DreamEngine OpenGL::GL GLEW::GLEW ${GLFW3_LIBRARY} Window_Game Tests Events Graphics Primitives )
+```
+
+This one won't, because it's linked later then the libraries which are used in Tests/Triangle_no_texture.cpp.
+So order of the linking matters, first going parent file and after it it's dependencies.
+Ex. - 
+```CMake
+target_link_libraries(DreamEngine OpenGL::GL GLEW::GLEW ${GLFW3_LIBRARY} Window_Game Tests Events Graphics Primitives )
+```
+
+It will produce such errors - 
+
+```bash
+[main] Building folder: Minecraft CPP DreamEngine
+[build] Starting build
+[proc] Executing command: /usr/bin/cmake --build "/mnt/sdb1/Linux/Minecraft CPP/build" --config Debug --target DreamEngine --
+[build] [ 16%] Built target Primitives
+[build] [ 33%] Built target Tests
+[build] [ 50%] Built target Window_Game
+[build] [ 66%] Built target Events
+[build] [ 83%] Built target Graphics
+[build] [ 91%] Linking CXX executable DreamEngine
+[build] /usr/bin/ld: libTests.a(Triangle_no_texture.cpp.o): warning: relocation against `PassEvents' in read-only section `.text'
+[build] /usr/bin/ld: libTests.a(Triangle_no_texture.cpp.o): en la función `triangleNoTexture()':
+[build] /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:48: referencia a `load_shader(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:70: referencia a `Shader::use()' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:83: referencia a `char_callback(GLFWwindow*, unsigned int)' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:84: referencia a `PassEvents' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:86: referencia a `PassEvents' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:87: referencia a `PassEvents' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:90: referencia a `key_callback(GLFWwindow*, int, int, int, int)' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:91: referencia a `mouse_button_callback(GLFWwindow*, int, int, int)' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:92: referencia a `scroll_callback(GLFWwindow*, double, double)' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:94: referencia a `PassEvents' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:94: referencia a `PassEvents' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:94: referencia a `pointer_position(GLFWwindow*, double&, double&)' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:96: referencia a `PassEvents' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:99: referencia a `PassEvents' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:105: referencia a `PassEvents' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:111: referencia a `noTexture_triangle(Shader&, unsigned int&)' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:119: referencia a `Shader::~Shader()' sin definir
+[build] /usr/bin/ld: /mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp:119: referencia a `Shader::~Shader()' sin definir
+[build] /usr/bin/ld: warning: creating DT_TEXTREL in a PIE
+[build] collect2: error: ld devolvió el estado de salida 1
+[build] make[3]: *** [CMakeFiles/DreamEngine.dir/build.make:106: DreamEngine] Error 1
+[build] make[2]: *** [CMakeFiles/Makefile2:227: CMakeFiles/DreamEngine.dir/all] Error 2
+[build] make[1]: *** [CMakeFiles/Makefile2:234: CMakeFiles/DreamEngine.dir/rule] Error 2
+[build] make: *** [Makefile:189: DreamEngine] Error 2
+[proc] The command: /usr/bin/cmake --build "/mnt/sdb1/Linux/Minecraft CPP/build" --config Debug --target DreamEngine -- exited with code: 2 and signal: null
+[build] Build finished with exit code 2
+```
+
+So, basically compiler would think about it that the dependencies libraries an their members are not defined. Like if headers were not included, corrupted or path to them is incorrect.

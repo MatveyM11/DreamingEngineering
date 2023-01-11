@@ -41,6 +41,37 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /mnt/sdb1/Linux/Minecraft$ CPP/build/
 # =============================================================================
+# Object build statements for STATIC_LIBRARY target Tests
+
+
+#############################################
+# Order-only phony target for Tests
+
+build cmake_object_order_depends_target_Tests: phony || CMakeFiles/Tests.dir
+
+build CMakeFiles/Tests.dir/DreamEngine/Tests/Triangle_no_texture.cpp.o: CXX_COMPILER__Tests_Debug /mnt/sdb1/Linux/Minecraft$ CPP/DreamEngine/Tests/Triangle_no_texture.cpp || cmake_object_order_depends_target_Tests
+  DEP_FILE = CMakeFiles/Tests.dir/DreamEngine/Tests/Triangle_no_texture.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/Tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/Tests.dir/DreamEngine/Tests
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target Tests
+
+
+#############################################
+# Link the static library libTests.a
+
+build libTests.a: CXX_STATIC_LIBRARY_LINKER__Tests_Debug CMakeFiles/Tests.dir/DreamEngine/Tests/Triangle_no_texture.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = CMakeFiles/Tests.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = libTests.a
+  TARGET_PDB = Tests.a.dbg
+
+# =============================================================================
 # Object build statements for STATIC_LIBRARY target Window_Game
 
 
@@ -171,7 +202,7 @@ build libPrimitives.a: CXX_STATIC_LIBRARY_LINKER__Primitives_Debug CMakeFiles/Pr
 #############################################
 # Order-only phony target for DreamEngine
 
-build cmake_object_order_depends_target_DreamEngine: phony || cmake_object_order_depends_target_Events cmake_object_order_depends_target_Graphics cmake_object_order_depends_target_Primitives cmake_object_order_depends_target_Window_Game
+build cmake_object_order_depends_target_DreamEngine: phony || cmake_object_order_depends_target_Events cmake_object_order_depends_target_Graphics cmake_object_order_depends_target_Primitives cmake_object_order_depends_target_Tests cmake_object_order_depends_target_Window_Game
 
 build CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o: CXX_COMPILER__DreamEngine_Debug /mnt/sdb1/Linux/Minecraft$ CPP/DreamEngine/main.cpp || cmake_object_order_depends_target_DreamEngine
   DEP_FILE = CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o.d
@@ -187,9 +218,9 @@ build CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o: CXX_COMPILER__DreamEngi
 #############################################
 # Link the executable DreamEngine
 
-build DreamEngine: CXX_EXECUTABLE_LINKER__DreamEngine_Debug CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o | /usr/lib/libGLEW.so /usr/lib/libglfw.so libWindow_Game.a libEvents.a libGraphics.a libPrimitives.a /usr/lib/libGLX.so /usr/lib/libOpenGL.so || libEvents.a libGraphics.a libPrimitives.a libWindow_Game.a
+build DreamEngine: CXX_EXECUTABLE_LINKER__DreamEngine_Debug CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o | /usr/lib/libGLEW.so /usr/lib/libglfw.so libWindow_Game.a libTests.a libEvents.a libGraphics.a libPrimitives.a /usr/lib/libGLX.so /usr/lib/libOpenGL.so || libEvents.a libGraphics.a libPrimitives.a libTests.a libWindow_Game.a
   FLAGS = -g
-  LINK_LIBRARIES = /usr/lib/libGLEW.so  /usr/lib/libglfw.so  libWindow_Game.a  libEvents.a  libGraphics.a  libPrimitives.a  /usr/lib/libGLX.so  /usr/lib/libOpenGL.so
+  LINK_LIBRARIES = /usr/lib/libGLEW.so  /usr/lib/libglfw.so  libWindow_Game.a  libTests.a  libEvents.a  libGraphics.a  libPrimitives.a  /usr/lib/libGLX.so  /usr/lib/libOpenGL.so
   OBJECT_DIR = CMakeFiles/DreamEngine.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -229,6 +260,8 @@ build Graphics: phony libGraphics.a
 
 build Primitives: phony libPrimitives.a
 
+build Tests: phony libTests.a
+
 build Window_Game: phony libWindow_Game.a
 
 # =============================================================================
@@ -239,7 +272,7 @@ build Window_Game: phony libWindow_Game.a
 #############################################
 # Folder: /mnt/sdb1/Linux/Minecraft CPP/build
 
-build all: phony libWindow_Game.a libEvents.a libGraphics.a libPrimitives.a DreamEngine
+build all: phony libTests.a libWindow_Game.a libEvents.a libGraphics.a libPrimitives.a DreamEngine
 
 # =============================================================================
 # Built-in targets

@@ -1,6 +1,11 @@
 [
 {
   "directory": "/mnt/sdb1/Linux/Minecraft CPP/build",
+  "command": "/usr/bin/clang++ -g -o CMakeFiles/Tests.dir/DreamEngine/Tests/Triangle_no_texture.cpp.o -c \"/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp\"",
+  "file": "/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Tests/Triangle_no_texture.cpp"
+},
+{
+  "directory": "/mnt/sdb1/Linux/Minecraft CPP/build",
   "command": "/usr/bin/clang++ -g -o CMakeFiles/Window_Game.dir/DreamEngine/Window/Window_Game.cpp.o -c \"/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Window/Window_Game.cpp\"",
   "file": "/mnt/sdb1/Linux/Minecraft CPP/DreamEngine/Window/Window_Game.cpp"
 },

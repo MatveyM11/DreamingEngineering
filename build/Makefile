@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Tests
+
+# Build rule for target.
+Tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Tests
+.PHONY : Tests
+
+# fast build rule for target.
+Tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tests.dir/build.make CMakeFiles/Tests.dir/build
+.PHONY : Tests/fast
+
+#=============================================================================
 # Target rules for targets named Window_Game
 
 # Build rule for target.
@@ -143,6 +156,32 @@ Events/fast:
 .PHONY : Events/fast
 
 #=============================================================================
+# Target rules for targets named Graphics
+
+# Build rule for target.
+Graphics: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Graphics
+.PHONY : Graphics
+
+# fast build rule for target.
+Graphics/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Graphics.dir/build.make CMakeFiles/Graphics.dir/build
+.PHONY : Graphics/fast
+
+#=============================================================================
+# Target rules for targets named Primitives
+
+# Build rule for target.
+Primitives: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Primitives
+.PHONY : Primitives
+
+# fast build rule for target.
+Primitives/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Primitives.dir/build.make CMakeFiles/Primitives.dir/build
+.PHONY : Primitives/fast
+
+#=============================================================================
 # Target rules for targets named DreamEngine
 
 # Build rule for target.
@@ -155,29 +194,77 @@ DreamEngine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DreamEngine.dir/build.make CMakeFiles/DreamEngine.dir/build
 .PHONY : DreamEngine/fast
 
-DreamEngine/Main.o: DreamEngine/Main.cpp.o
-.PHONY : DreamEngine/Main.o
+DreamEngine/Graphics/Shader.o: DreamEngine/Graphics/Shader.cpp.o
+.PHONY : DreamEngine/Graphics/Shader.o
 
 # target to build an object file
-DreamEngine/Main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DreamEngine.dir/build.make CMakeFiles/DreamEngine.dir/DreamEngine/Main.cpp.o
-.PHONY : DreamEngine/Main.cpp.o
+DreamEngine/Graphics/Shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Graphics.dir/build.make CMakeFiles/Graphics.dir/DreamEngine/Graphics/Shader.cpp.o
+.PHONY : DreamEngine/Graphics/Shader.cpp.o
 
-DreamEngine/Main.i: DreamEngine/Main.cpp.i
-.PHONY : DreamEngine/Main.i
+DreamEngine/Graphics/Shader.i: DreamEngine/Graphics/Shader.cpp.i
+.PHONY : DreamEngine/Graphics/Shader.i
 
 # target to preprocess a source file
-DreamEngine/Main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DreamEngine.dir/build.make CMakeFiles/DreamEngine.dir/DreamEngine/Main.cpp.i
-.PHONY : DreamEngine/Main.cpp.i
+DreamEngine/Graphics/Shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Graphics.dir/build.make CMakeFiles/Graphics.dir/DreamEngine/Graphics/Shader.cpp.i
+.PHONY : DreamEngine/Graphics/Shader.cpp.i
 
-DreamEngine/Main.s: DreamEngine/Main.cpp.s
-.PHONY : DreamEngine/Main.s
+DreamEngine/Graphics/Shader.s: DreamEngine/Graphics/Shader.cpp.s
+.PHONY : DreamEngine/Graphics/Shader.s
 
 # target to generate assembly for a file
-DreamEngine/Main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DreamEngine.dir/build.make CMakeFiles/DreamEngine.dir/DreamEngine/Main.cpp.s
-.PHONY : DreamEngine/Main.cpp.s
+DreamEngine/Graphics/Shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Graphics.dir/build.make CMakeFiles/Graphics.dir/DreamEngine/Graphics/Shader.cpp.s
+.PHONY : DreamEngine/Graphics/Shader.cpp.s
+
+DreamEngine/Primitives/Primitives.o: DreamEngine/Primitives/Primitives.cpp.o
+.PHONY : DreamEngine/Primitives/Primitives.o
+
+# target to build an object file
+DreamEngine/Primitives/Primitives.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Primitives.dir/build.make CMakeFiles/Primitives.dir/DreamEngine/Primitives/Primitives.cpp.o
+.PHONY : DreamEngine/Primitives/Primitives.cpp.o
+
+DreamEngine/Primitives/Primitives.i: DreamEngine/Primitives/Primitives.cpp.i
+.PHONY : DreamEngine/Primitives/Primitives.i
+
+# target to preprocess a source file
+DreamEngine/Primitives/Primitives.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Primitives.dir/build.make CMakeFiles/Primitives.dir/DreamEngine/Primitives/Primitives.cpp.i
+.PHONY : DreamEngine/Primitives/Primitives.cpp.i
+
+DreamEngine/Primitives/Primitives.s: DreamEngine/Primitives/Primitives.cpp.s
+.PHONY : DreamEngine/Primitives/Primitives.s
+
+# target to generate assembly for a file
+DreamEngine/Primitives/Primitives.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Primitives.dir/build.make CMakeFiles/Primitives.dir/DreamEngine/Primitives/Primitives.cpp.s
+.PHONY : DreamEngine/Primitives/Primitives.cpp.s
+
+DreamEngine/Tests/Triangle_no_texture.o: DreamEngine/Tests/Triangle_no_texture.cpp.o
+.PHONY : DreamEngine/Tests/Triangle_no_texture.o
+
+# target to build an object file
+DreamEngine/Tests/Triangle_no_texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tests.dir/build.make CMakeFiles/Tests.dir/DreamEngine/Tests/Triangle_no_texture.cpp.o
+.PHONY : DreamEngine/Tests/Triangle_no_texture.cpp.o
+
+DreamEngine/Tests/Triangle_no_texture.i: DreamEngine/Tests/Triangle_no_texture.cpp.i
+.PHONY : DreamEngine/Tests/Triangle_no_texture.i
+
+# target to preprocess a source file
+DreamEngine/Tests/Triangle_no_texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tests.dir/build.make CMakeFiles/Tests.dir/DreamEngine/Tests/Triangle_no_texture.cpp.i
+.PHONY : DreamEngine/Tests/Triangle_no_texture.cpp.i
+
+DreamEngine/Tests/Triangle_no_texture.s: DreamEngine/Tests/Triangle_no_texture.cpp.s
+.PHONY : DreamEngine/Tests/Triangle_no_texture.s
+
+# target to generate assembly for a file
+DreamEngine/Tests/Triangle_no_texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tests.dir/build.make CMakeFiles/Tests.dir/DreamEngine/Tests/Triangle_no_texture.cpp.s
+.PHONY : DreamEngine/Tests/Triangle_no_texture.cpp.s
 
 DreamEngine/Window/Events.o: DreamEngine/Window/Events.cpp.o
 .PHONY : DreamEngine/Window/Events.o
@@ -227,6 +314,30 @@ DreamEngine/Window/Window_Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Window_Game.dir/build.make CMakeFiles/Window_Game.dir/DreamEngine/Window/Window_Game.cpp.s
 .PHONY : DreamEngine/Window/Window_Game.cpp.s
 
+DreamEngine/main.o: DreamEngine/main.cpp.o
+.PHONY : DreamEngine/main.o
+
+# target to build an object file
+DreamEngine/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DreamEngine.dir/build.make CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.o
+.PHONY : DreamEngine/main.cpp.o
+
+DreamEngine/main.i: DreamEngine/main.cpp.i
+.PHONY : DreamEngine/main.i
+
+# target to preprocess a source file
+DreamEngine/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DreamEngine.dir/build.make CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.i
+.PHONY : DreamEngine/main.cpp.i
+
+DreamEngine/main.s: DreamEngine/main.cpp.s
+.PHONY : DreamEngine/main.s
+
+# target to generate assembly for a file
+DreamEngine/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DreamEngine.dir/build.make CMakeFiles/DreamEngine.dir/DreamEngine/main.cpp.s
+.PHONY : DreamEngine/main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -237,16 +348,28 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... DreamEngine"
 	@echo "... Events"
+	@echo "... Graphics"
+	@echo "... Primitives"
+	@echo "... Tests"
 	@echo "... Window_Game"
-	@echo "... DreamEngine/Main.o"
-	@echo "... DreamEngine/Main.i"
-	@echo "... DreamEngine/Main.s"
+	@echo "... DreamEngine/Graphics/Shader.o"
+	@echo "... DreamEngine/Graphics/Shader.i"
+	@echo "... DreamEngine/Graphics/Shader.s"
+	@echo "... DreamEngine/Primitives/Primitives.o"
+	@echo "... DreamEngine/Primitives/Primitives.i"
+	@echo "... DreamEngine/Primitives/Primitives.s"
+	@echo "... DreamEngine/Tests/Triangle_no_texture.o"
+	@echo "... DreamEngine/Tests/Triangle_no_texture.i"
+	@echo "... DreamEngine/Tests/Triangle_no_texture.s"
 	@echo "... DreamEngine/Window/Events.o"
 	@echo "... DreamEngine/Window/Events.i"
 	@echo "... DreamEngine/Window/Events.s"
 	@echo "... DreamEngine/Window/Window_Game.o"
 	@echo "... DreamEngine/Window/Window_Game.i"
 	@echo "... DreamEngine/Window/Window_Game.s"
+	@echo "... DreamEngine/main.o"
+	@echo "... DreamEngine/main.i"
+	@echo "... DreamEngine/main.s"
 .PHONY : help
 
 

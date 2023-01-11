@@ -1,3 +1,4 @@
+/mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/Tests.dir
 /mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/Window_Game.dir
 /mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/Events.dir
 /mnt/sdb1/Linux/Minecraft CPP/build/CMakeFiles/Graphics.dir

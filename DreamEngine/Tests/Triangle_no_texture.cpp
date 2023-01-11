@@ -1,7 +1,7 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "Events.h"
+#include "../Window/Events.h"
 #include "../Graphics/Shader.h"
 #include "../Primitives/Primitives.h"
 
@@ -9,7 +9,7 @@ const int WIDTH = 1280;
 const int HEIGHT = 720;
 
 
-int Window_Game()
+int triangleNoTexture()
 {
 
     float vertices[] = {
@@ -24,7 +24,7 @@ int Window_Game()
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // CORE_PROFILE uses only new OpenGL features, and GLFW_OPENGL_COMPAT_PROFILE uses both new and Old
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);                      // literally means you cannot or can resize yours window
 
-    GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "DreamingEngineering", nullptr, nullptr); // initialising window parameters
+    GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "TriangleNoTexture - Test", nullptr, nullptr); // initialising window parameters
 
     if (window == nullptr)
     { // Checks if window created properly properly, else returns error and closes program
